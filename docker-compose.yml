@@ -1,0 +1,11 @@
+version: '3.2'
+
+services:
+  letsencrypt:
+    image: letsencrypt:latest
+    build: .
+    environment:
+      - FQDN
+    volumes:
+      - ~/.config:/root/.config
+      - ~/.kube:/root/.kube

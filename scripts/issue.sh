@@ -4,7 +4,7 @@ source common.sh
 
 : "${FQDN:?Please set the FQDN associated with the certificate to be issued.}"
 
-BUCKET=tw-certs
+BUCKET=tw-certs-sponsoroo
 
 ensure_bucket_exists "$BUCKET"
 download_previous_run_data "$BUCKET" "$FQDN"-keys.tgz

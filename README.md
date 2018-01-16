@@ -17,11 +17,16 @@ To persist the certificates data (key materials) between different runs of this 
 make build
 ```
 
-- Issue the certificate for your Fully Qualified Domain Name (FQDN):
+- Test the automation issuing a fake certificate for your Fully Qualified Domain Name (FQDN) via LetsEncrypt Staging API:
 ```
 make issue fqdn=dev.example.com
 ```
 PS: This code uses [dns-01 challenge](https://github.com/lukas2511/dehydrated/blob/master/docs/dns-verification.md) and assumes that you have an authoritative DNS zone for the FQDN informed above, on your GCP Project.
+
+- If all goes fine, it means you can re-run to issue real certificates, by hitting the LetsEncrypt Production API:
+```
+make issue fqdn=dev.example.com letsencrypt_api=prod
+```
 
 ## Troubleshoot
 

@@ -10,4 +10,4 @@ services:
       - GOOGLE_COMPUTE_ZONE=${GOOGLE_COMPUTE_ZONE}
       - GOOGLE_CLUSTER_NAME=${GOOGLE_CLUSTER_NAME}
     volumes:
-      - /tmp/gcp-key.json:/root/gcp-key.json
+      - /tmp/:/root/tmp/

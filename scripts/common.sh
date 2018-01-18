@@ -1,5 +1,13 @@
 #!/bin/bash
 
+function setup_gcloud() {
+  gcloud auth activate-service-account --key-file /root/gcp-key.json
+  gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+  gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+  gcloud --quiet config set container/cluster ${GOOGLE_CLUSTER_NAME}
+  gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
+}
+
 function ensure_bucket_exists() {
   BUCKET_NAME=$1
   # create bucket on GCS if needed

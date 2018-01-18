@@ -6,8 +6,7 @@ services:
     build: .
     environment:
       - FQDN
+      - GCP_SERVICE_ACCOUNT_KEY=${GCP_SERVICE_ACCOUNT_KEY}
       - GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID}
       - GOOGLE_COMPUTE_ZONE=${GOOGLE_COMPUTE_ZONE}
       - GOOGLE_CLUSTER_NAME=${GOOGLE_CLUSTER_NAME}
-    volumes:
-      - /tmp/:/root/tmp/

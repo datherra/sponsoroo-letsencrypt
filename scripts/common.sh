@@ -6,7 +6,14 @@ function setup_gcloud() {
   gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
   gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
   gcloud --quiet config set container/cluster ${GOOGLE_CLUSTER_NAME}
-  gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
+
+  if [[ $ENV == "prod" ]]; then
+    gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME_PROD}
+  fi
+
+  if [[ $ENV == "staging" ]]; then
+    gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
+  fi
 }
 
 function ensure_bucket_exists() {

@@ -6,6 +6,7 @@ source common.sh
 
 BUCKET=tw-certs-sponsoroo
 
+setup_gcloud
 ensure_bucket_exists "$BUCKET"
 download_previous_run_data "$BUCKET" "$FQDN"-keys.tgz
 run_acme_client "$LETSENCRYPT_API" "$FQDN"

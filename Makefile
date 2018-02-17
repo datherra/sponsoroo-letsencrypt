@@ -7,9 +7,9 @@ build:
 
 issue:
 	docker-compose -f docker-compose.yml run --rm \
-	-e LETSENCRYPT_API=$(letsencrypt_api) -e FQDN=$(fqdn) letsencrypt
+	-e LETSENCRYPT_API=$(letsencrypt_api) -e FQDN=$(fqdn) -e GOOGLE_CLUSTER_NAME=$(google_cluster_name) letsencrypt
 
 shell:
 	docker-compose run --rm \
-	-e LETSENCRYPT_API=$(letsencrypt_api) -e FQDN=$(fqdn) letsencrypt \
+	-e LETSENCRYPT_API=$(letsencrypt_api) -e FQDN=$(fqdn) -e ENV=$(env) letsencrypt \
 	/bin/bash

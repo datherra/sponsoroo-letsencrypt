@@ -200,4 +200,8 @@ function invalid_challenge {
 function exit_hook {
   echo "Dehydrated Finished."
 }
-HANDLER=$1; shift; $HANDLER $@
+
+HANDLER="$1"; shift
+if [[ "${HANDLER}" =~ ^(deploy_challenge|clean_challenge|deploy_cert|unchanged_cert)$ ]]; then
+  "$HANDLER" "$@"
+fi

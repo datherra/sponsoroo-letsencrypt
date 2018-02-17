@@ -11,5 +11,5 @@ issue:
 
 shell:
 	docker-compose run --rm \
-	-e LETSENCRYPT_API=$(letsencrypt_api) -e FQDN=$(fqdn) -e ENV=$(env) letsencrypt \
+	-e LETSENCRYPT_API=$(letsencrypt_api) -e FQDN=$(fqdn) -e GOOGLE_CLUSTER_NAME=$(goo    gle_cluster_name) letsencrypt \
 	/bin/bash

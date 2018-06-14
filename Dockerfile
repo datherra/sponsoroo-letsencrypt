@@ -9,9 +9,8 @@ RUN yum -y -q update && \
 ENV CLOUDSDK_INSTALL_DIR /usr/lib64/google-cloud-sdk
 ENV CLOUDSDK_PYTHON_SITEPACKAGES 1
 COPY gcloud.repo /etc/yum.repos.d/
-ARG PLATFORM_GCLOUD_VERSION=180.0.1
 
-RUN yum -y -q install kubectl google-cloud-sdk-$PLATFORM_GCLOUD_VERSION* && \
+RUN yum -y install kubectl google-cloud-sdk && \
     yum -y -q clean all
 RUN mkdir -p /etc/gcloud/keys
 
